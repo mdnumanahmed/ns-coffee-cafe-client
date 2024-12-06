@@ -29,6 +29,13 @@ h1, h2, h3, h4{
 .bg-ns-green{
     background-color: #1B3C35;
 }
-.bg-ns-pink{
+.bg-ns-pink-cherry{
     background-color: #E5032F;
 }
+.bg-ns-red-pinkish{
+    background-color: #6E2038;
+}
+.bg-ns-light-pink{
+    background-color: #CFA8CA;
+}
+
