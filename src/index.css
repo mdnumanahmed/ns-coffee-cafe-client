@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400..900&family=Rancho&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.raleway {
+  font-family: "Raleway", sans-serif;
+}
+
+.rancho {
+  font-family: "Rancho", cursive;
+}
+
+body{
+    font-family: "Raleway", sans-serif;
+    font-size: 16px;
+    color: #1B1A1A;
+}
+
+h1, h2, h3, h4{
+    color: #331A15;
+}
+
+.bg-ns-gray{
+    background-color: #F4F3F0;
+}
+
+.bg-ns-green{
+    background-color: #1B3C35;
+}
+.bg-ns-pink{
+    background-color: #E5032F;
+}

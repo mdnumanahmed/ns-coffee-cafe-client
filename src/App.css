@@ -1,0 +1,209 @@
+/*  
+1. Soft Drinks
+Carbonated sodas
+Tonic water
+Flavored sparkling water
+Lemonades
+Root beers
+Cola-based drinks
+
+2. Juices
+Citrus juices (orange, lemon)
+Tropical juices (pineapple, mango)
+Mixed fruit blends
+Vegetable juices (carrot, celery)
+Cold-pressed juices
+Concentrated syrups for dilution
+
+3. Alcoholic Beverages
+Beer (lager, ale)
+Wine (red, white, rosé)
+Spirits (whiskey, vodka, rum)
+Liqueurs (Baileys, amaretto)
+Cocktails (pre-mixed, RTD cans)
+Hard ciders
+
+4. Hot Beverages
+Coffee (espresso, latte)
+Tea (black, green, herbal)
+Hot chocolate
+Flavored hot milk drinks
+Masala chai blends
+Specialty drinks (matcha, turmeric latte)
+
+5. Energy Drinks
+Traditional energy drinks
+Sugar-free options
+Caffeine-based boosters
+Herbal/organic energy drinks
+Vitamin-enriched options
+Pre-workout blends
+
+6. Water Products
+Spring water
+Distilled water
+Flavored water
+Alkaline water
+Mineral water
+Electrolyte-infused water
+
+7. Plant-Based Drinks
+Coconut water
+Almond milk
+Soy milk
+Oat milk
+Cashew milk
+Rice milk
+
+8. Dairy Beverages
+Milkshakes
+Yogurt-based drinks (lassi, kefir)
+Flavored milk (strawberry, chocolate)
+Buttermilk
+Protein shakes
+Cream-based drinks
+
+9. Functional Drinks
+Detox drinks
+Probiotic beverages
+Collagen-infused drinks
+Sleep aids (melatonin-based)
+Immunity boosters (ginger, turmeric blends)
+Sports recovery drinks
+
+10. Mocktails & Specialty Drinks
+Virgin mojitos
+Fruit sangrias
+Sparkling mocktails
+Herbal infused blends
+Kombucha
+Non-alcoholic spirits
+
+
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Soft Drinks",
+      "subcategories": [
+        { "id": 1, "name": "Carbonated sodas" },
+        { "id": 2, "name": "Tonic water" },
+        { "id": 3, "name": "Flavored sparkling water" },
+        { "id": 4, "name": "Lemonades" },
+        { "id": 5, "name": "Root beers" },
+        { "id": 6, "name": "Cola-based drinks" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Juices",
+      "subcategories": [
+        { "id": 1, "name": "Citrus juices" },
+        { "id": 2, "name": "Tropical juices" },
+        { "id": 3, "name": "Mixed fruit blends" },
+        { "id": 4, "name": "Vegetable juices" },
+        { "id": 5, "name": "Cold-pressed juices" },
+        { "id": 6, "name": "Concentrated syrups for dilution" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Alcoholic Beverages",
+      "subcategories": [
+        { "id": 1, "name": "Beer" },
+        { "id": 2, "name": "Wine" },
+        { "id": 3, "name": "Spirits" },
+        { "id": 4, "name": "Liqueurs" },
+        { "id": 5, "name": "Cocktails" },
+        { "id": 6, "name": "Hard ciders" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Hot Beverages",
+      "subcategories": [
+        { "id": 1, "name": "Coffee" },
+        { "id": 2, "name": "Tea" },
+        { "id": 3, "name": "Hot chocolate" },
+        { "id": 4, "name": "Flavored hot milk drinks" },
+        { "id": 5, "name": "Masala chai blends" },
+        { "id": 6, "name": "Specialty drinks" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Energy Drinks",
+      "subcategories": [
+        { "id": 1, "name": "Traditional energy drinks" },
+        { "id": 2, "name": "Sugar-free options" },
+        { "id": 3, "name": "Caffeine-based boosters" },
+        { "id": 4, "name": "Herbal/organic energy drinks" },
+        { "id": 5, "name": "Vitamin-enriched options" },
+        { "id": 6, "name": "Pre-workout blends" }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Water Products",
+      "subcategories": [
+        { "id": 1, "name": "Spring water" },
+        { "id": 2, "name": "Distilled water" },
+        { "id": 3, "name": "Flavored water" },
+        { "id": 4, "name": "Alkaline water" },
+        { "id": 5, "name": "Mineral water" },
+        { "id": 6, "name": "Electrolyte-infused water" }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Plant-Based Drinks",
+      "subcategories": [
+        { "id": 1, "name": "Coconut water" },
+        { "id": 2, "name": "Almond milk" },
+        { "id": 3, "name": "Soy milk" },
+        { "id": 4, "name": "Oat milk" },
+        { "id": 5, "name": "Cashew milk" },
+        { "id": 6, "name": "Rice milk" }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Dairy Beverages",
+      "subcategories": [
+        { "id": 1, "name": "Milkshakes" },
+        { "id": 2, "name": "Yogurt-based drinks" },
+        { "id": 3, "name": "Flavored milk" },
+        { "id": 4, "name": "Buttermilk" },
+        { "id": 5, "name": "Protein shakes" },
+        { "id": 6, "name": "Cream-based drinks" }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Functional Drinks",
+      "subcategories": [
+        { "id": 1, "name": "Detox drinks" },
+        { "id": 2, "name": "Probiotic beverages" },
+        { "id": 3, "name": "Collagen-infused drinks" },
+        { "id": 4, "name": "Sleep aids" },
+        { "id": 5, "name": "Immunity boosters" },
+        { "id": 6, "name": "Sports recovery drinks" }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Mocktails & Specialty Drinks",
+      "subcategories": [
+        { "id": 1, "name": "Virgin mojitos" },
+        { "id": 2, "name": "Fruit sangrias" },
+        { "id": 3, "name": "Sparkling mocktails" },
+        { "id": 4, "name": "Herbal infused blends" },
+        { "id": 5, "name": "Kombucha" },
+        { "id": 6, "name": "Non-alcoholic spirits" }
+      ]
+    }
+  ]
+}
+
+
+*/
