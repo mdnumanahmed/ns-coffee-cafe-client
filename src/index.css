@@ -22,6 +22,12 @@ h1, h2, h3, h4{
     color: #331A15;
 }
 
+header ul li a{
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .bg-ns-gray{
     background-color: #F4F3F0;
 }
@@ -37,5 +43,15 @@ h1, h2, h3, h4{
 }
 .bg-ns-light-pink{
     background-color: #CFA8CA;
+}
+
+.btn {
+    @apply px-8 py-3 font-semibold rounded-3xl border-2 border-[#6E2038]
+}
+.btn-primary{
+    @apply bg-ns-red-pinkish text-white hover:bg-transparent hover:text-[#6E2038]
+}
+.btn-outline{
+    @apply  text-[#6E2038] hover:bg-[#6E2038] hover:text-white
 }
 
