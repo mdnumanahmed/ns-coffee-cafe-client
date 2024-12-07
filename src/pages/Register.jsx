@@ -1,8 +1,33 @@
 import { Link } from "react-router-dom";
 import SocialLogin from "../components/LoginRegister/SocialLogin";
 import LeftPane from "../components/LoginRegister/LeftPane";
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const name = form.get("name");
+    const photo = form.get("photo");
+    const email = form.get("email");
+    const password = form.get("password");
+    const confPassword = form.get("confirm-password");
+    const inputValues = { name, photo, email, password, confPassword };
+    console.log(inputValues);
+
+    // create a new user with email password
+    createUser(email, password)
+      .then((result) => {
+        const createdUser = result.user;
+        console.log(createdUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div>
       <div className="flex p-10 bg-slate-50">
@@ -23,7 +48,7 @@ const Register = () => {
             <div className="mt-4  text-gray-600 text-center">
               <p>or with email</p>
             </div>
-            <form className="space-y-4">
+            <form onSubmit={handleRegister} className="space-y-4">
               {/* <!-- Your form elements go here --> */}
               <div>
                 <label
