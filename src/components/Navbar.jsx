@@ -71,12 +71,21 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="items-center flex-shrink-0 hidden gap-3 lg:flex">
-            <button className="self-center btn btn-outline dark:bg-fuchsia-600 dark:text-gray-50">
-              Sign in
-            </button>
-            <button className="self-center btn btn-primary dark:bg-fuchsia-600 dark:text-gray-50">
-              Sign up
-            </button>
+            <Link to="/">
+              <button className="self-center btn btn-outline dark:bg-fuchsia-600 dark:text-gray-50">
+                Sign Out
+              </button>
+            </Link>
+            <Link to="/signin">
+              <button className="self-center btn btn-outline dark:bg-fuchsia-600 dark:text-gray-50">
+                Sign in
+              </button>
+            </Link>
+            <Link to="/signup">
+              <button className="self-center btn btn-primary dark:bg-fuchsia-600 dark:text-gray-50">
+                Sign up
+              </button>
+            </Link>
           </div>
           <button title="Button" type="button" className="p-4 md:hidden">
             <svg

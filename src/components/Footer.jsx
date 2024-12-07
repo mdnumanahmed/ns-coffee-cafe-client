@@ -114,7 +114,7 @@ const Footer = () => {
           <div className="lg:w-1/3">
             <form
               noValidate=""
-              className="flex flex-col py-6 space-y-6 md:py-0 md:px-6"
+              className="flex flex-col py-6 space-y-4 md:py-0 md:px-6"
             >
               <label className="block">
                 <span className="">Full name</span>
@@ -135,20 +135,20 @@ const Footer = () => {
               <label className="block">
                 <span className="">Message</span>
                 <textarea
-                  rows="3"
+                  rows="2"
                   className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-fuchsia-600 dark:bg-gray-100"
                 ></textarea>
               </label>
               <button
                 type="button"
-                className="self-start btn btn-outline rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-fuchsia-600 dark:text-gray-50 focus:dark:ring-fuchsia-600 hover:dark:ring-fuchsia-600"
+                className="self-start btn btn-outline !py-2 rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-fuchsia-600 dark:text-gray-50 focus:dark:ring-fuchsia-600 hover:dark:ring-fuchsia-600"
               >
                 Submit
               </button>
             </form>
           </div>
         </div>
-        <div className="py-6 text-sm text-center dark:text-gray-600">
+        <div className="py-6 text-sm text-white text-center bg-[url('./assets/copy_bg.jpg')] dark:text-gray-600">
           © 2024 NS Coffee Cafe All rights reserved.
         </div>
       </footer>
