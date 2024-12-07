@@ -36,6 +36,7 @@ const Register = () => {
                   type="text"
                   id="name"
                   name="name"
+                  placeholder="Your Name"
                   className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
                 />
               </div>
@@ -50,6 +51,7 @@ const Register = () => {
                   type="text"
                   id="photo"
                   name="photo"
+                  placeholder="Photo URL"
                   className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
                 />
               </div>
@@ -64,6 +66,7 @@ const Register = () => {
                   type="text"
                   id="email"
                   name="email"
+                  placeholder="Email"
                   className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
                 />
               </div>
@@ -78,6 +81,7 @@ const Register = () => {
                   type="password"
                   id="password"
                   name="password"
+                  placeholder="Password"
                   className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
                 />
               </div>
@@ -92,6 +96,7 @@ const Register = () => {
                   type="password"
                   id="confirm-password"
                   name="confirm-password"
+                  placeholder="Confirm Password"
                   className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
                 />
               </div>

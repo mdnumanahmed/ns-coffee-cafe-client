@@ -63,6 +63,14 @@ const Navbar = () => {
             </li>
             <li className="flex">
               <NavLink
+                to="/blogs"
+                className="flex items-center px-4 dark:border-"
+              >
+                Blogs
+              </NavLink>
+            </li>
+            <li className="flex">
+              <NavLink
                 to="/contact"
                 className="flex items-center px-4 dark:border-"
               >
