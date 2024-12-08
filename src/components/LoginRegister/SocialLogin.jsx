@@ -2,10 +2,21 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const SocialLogin = () => {
-  const { googleSignIn } = useContext(AuthContext);
+  const { googleSignIn, githubSignIn } = useContext(AuthContext);
 
   const handleGoogleSignIn = () => {
     googleSignIn()
+      .then((result) => {
+        const signedUser = result.user;
+        console.log(signedUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleGithubSignIn = () => {
+    githubSignIn()
       .then((result) => {
         const signedUser = result.user;
         console.log(signedUser);
@@ -51,6 +62,7 @@ const SocialLogin = () => {
       </div>
       <div className="w-full lg:w-1/2 ml-0 lg:ml-2">
         <button
+          onClick={handleGithubSignIn}
           type="button"
           className="w-full flex justify-center items-center gap-2 bg-white  text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300"
         >
