@@ -46,7 +46,7 @@ const Navbar = () => {
             aria-label="Back to homepage"
             className="flex items-center p-3 w-16 rounded-full ring-2 ring-black"
           >
-            <img src={logo} alt="" />
+            <img src={user ? user.photoURL : logo} alt="" />
           </Link>
           <ul className="items-stretch hidden space-x-3 md:flex">
             {user ? (

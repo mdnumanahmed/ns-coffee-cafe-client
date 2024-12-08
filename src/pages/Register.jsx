@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../components/LoginRegister/SocialLogin";
 import LeftPane from "../components/LoginRegister/LeftPane";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserData, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -22,12 +23,24 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
+        // update user data
+        updateUserData(createdUser, name, photo)
+          .then(() => {
+            setUser(createdUser);
+            navigate("/");
+            console.log("updatedUserData");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        form.reset();
         console.log(createdUser);
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
   return (
     <div>
       <div className="flex p-10 bg-slate-50">
