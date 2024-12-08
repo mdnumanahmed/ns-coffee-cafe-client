@@ -46,11 +46,10 @@ const AuthProvider = ({ children }) => {
     return () => {
       unSubscribe();
     };
-  }, [user]);
+  }, []);
 
   const authInfo = {
     user,
-    setUser,
     loading,
     createUser,
     updateUserData,

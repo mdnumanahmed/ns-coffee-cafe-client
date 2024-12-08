@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import LeftPane from "../components/LoginRegister/LeftPane";
 import SocialLogin from "../components/LoginRegister/SocialLogin";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const { signInUser } = useContext(AuthContext);
+  const [showPass, setShowPass] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -64,7 +66,7 @@ const Login = () => {
                   className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
                 />
               </div>
-              <div>
+              <div className="relative">
                 <label
                   htmlFor="password"
                   className="block  font-medium text-gray-700"
@@ -78,6 +80,12 @@ const Login = () => {
                   placeholder="Password"
                   className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
                 />
+                <span
+                  onClick={() => setShowPass(!showPass)}
+                  className="text-2xl absolute top-1/2 right-4"
+                >
+                  {showPass ? <FaRegEyeSlash /> : <FaRegEye />}
+                </span>
               </div>
               <div>
                 <button

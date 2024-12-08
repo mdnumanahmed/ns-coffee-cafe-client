@@ -1,11 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../components/LoginRegister/SocialLogin";
 import LeftPane from "../components/LoginRegister/LeftPane";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser, updateUserData, setUser } = useContext(AuthContext);
+  const { createUser, updateUserData } = useContext(AuthContext);
+  const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
@@ -26,8 +29,14 @@ const Register = () => {
         // update user data
         updateUserData(createdUser, name, photo)
           .then(() => {
-            setUser(createdUser);
             navigate("/");
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "User created successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
             console.log("updatedUserData");
           })
           .catch((error) => {
@@ -108,7 +117,7 @@ const Register = () => {
                   className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
                 />
               </div>
-              <div>
+              <div className="relative">
                 <label
                   htmlFor="password"
                   className="block  font-medium text-gray-700"
@@ -116,14 +125,20 @@ const Register = () => {
                   Password
                 </label>
                 <input
-                  type="password"
+                  type={showPass ? "text" : "password"}
                   id="password"
                   name="password"
                   placeholder="Password"
                   className="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
                 />
+                <span
+                  onClick={() => setShowPass(!showPass)}
+                  className="text-2xl absolute top-1/2 right-4"
+                >
+                  {showPass ? <FaRegEyeSlash /> : <FaRegEye />}
+                </span>
               </div>
-              <div>
+              <div className="relative">
                 <label
                   htmlFor="confirm-password"
                   className="block  font-medium text-gray-700"
@@ -131,7 +146,7 @@ const Register = () => {
                   Confirm Password
                 </label>
                 <input
-                  type="password"
+                  type={showPass ? "text" : "password"}
                   id="confirm-password"
                   name="confirm-password"
                   placeholder="Confirm Password"
