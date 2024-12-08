@@ -4,7 +4,15 @@ import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div>
@@ -101,7 +109,10 @@ const Navbar = () => {
             {user ? (
               <>
                 <Link to="/">
-                  <button className="self-center btn btn-outline dark:bg-fuchsia-600 dark:text-gray-50">
+                  <button
+                    onClick={handleLogOut}
+                    className="self-center btn btn-outline dark:bg-fuchsia-600 dark:text-gray-50"
+                  >
                     Sign Out
                   </button>
                 </Link>
