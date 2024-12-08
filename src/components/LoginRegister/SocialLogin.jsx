@@ -1,8 +1,25 @@
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+
 const SocialLogin = () => {
+  const { googleSignIn } = useContext(AuthContext);
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const signedUser = result.user;
+        console.log(signedUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="mt-4 flex flex-col lg:flex-row items-center justify-between">
       <div className="w-full lg:w-1/2 mb-2 lg:mb-0">
         <button
+          onClick={handleGoogleSignIn}
           type="button"
           className="w-full flex justify-center items-center gap-2 bg-white  text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300"
         >

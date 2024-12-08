@@ -10,14 +10,14 @@ import validatePassword from "../utils/passwordValidate";
 const Register = () => {
   const { createUser, updateUserData } = useContext(AuthContext);
   const [showPass, setShowPass] = useState(false);
-  const [errors, setErrors] = useState([]);
+  const [passErrors, setPassErrors] = useState([]);
   const [inputtedPassword, setInputtedPassword] = useState("");
   const navigate = useNavigate();
 
   const handleChangePass = (e) => {
     setInputtedPassword(e.target.value);
     // check password strength
-    validatePassword(inputtedPassword, setErrors);
+    validatePassword(inputtedPassword, setPassErrors);
   };
 
   const handleRegister = (e) => {
@@ -140,7 +140,8 @@ const Register = () => {
                   onChange={handleChangePass}
                   placeholder="Password"
                   className={`${
-                    errors.length && "focus:ring-red-300 focus:border-red-200"
+                    passErrors.length &&
+                    "focus:ring-red-300 focus:border-red-200"
                   } mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300`}
                 />
                 <span
@@ -151,10 +152,10 @@ const Register = () => {
                 </span>
                 <div
                   className={`${
-                    !errors.length && "hidden"
+                    !passErrors.length && "hidden"
                   } absolute right-full -left-full bg-gray-200 p-5 -top-1/2 mr-3 text-red-600`}
                 >
-                  {errors?.map((error, index) => (
+                  {passErrors?.map((error, index) => (
                     <li key={index}>{error}</li>
                   ))}
                 </div>

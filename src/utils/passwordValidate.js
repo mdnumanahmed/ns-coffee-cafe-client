@@ -1,4 +1,4 @@
-const validatePassword = (password, setErrors) => {
+const validatePassword = (password, setPassErrors) => {
   const errorMessages = [];
   const validations = [
     {
@@ -30,7 +30,7 @@ const validatePassword = (password, setErrors) => {
     }
   });
 
-  setErrors(errorMessages);
+  setPassErrors(errorMessages);
 };
 
 export default validatePassword;
