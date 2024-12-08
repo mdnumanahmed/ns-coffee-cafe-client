@@ -1,7 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div>
       <header className="p-4 dark:bg-gray-100 dark:text-gray-800">
@@ -37,63 +41,85 @@ const Navbar = () => {
             <img src={logo} alt="" />
           </Link>
           <ul className="items-stretch hidden space-x-3 md:flex">
-            <li className="flex">
-              <NavLink
-                to="/dashboard"
-                className="flex items-center px-4 dark:border-"
-              >
-                Dashboard
-              </NavLink>
-            </li>
-            <li className="flex">
-              <NavLink
-                to="/add-coffee"
-                className="flex items-center px-4 dark:border-"
-              >
-                Add Coffee
-              </NavLink>
-            </li>
-            <li className="flex">
-              <NavLink
-                to="/we-offer"
-                className="flex items-center px-4 dark:border-"
-              >
-                We Offer
-              </NavLink>
-            </li>
-            <li className="flex">
-              <NavLink
-                to="/blogs"
-                className="flex items-center px-4 dark:border-"
-              >
-                Blogs
-              </NavLink>
-            </li>
-            <li className="flex">
-              <NavLink
-                to="/contact"
-                className="flex items-center px-4 dark:border-"
-              >
-                Contact Us
-              </NavLink>
-            </li>
+            {user ? (
+              <>
+                <li className="flex">
+                  <NavLink
+                    to="/dashboard"
+                    className="flex items-center px-4 dark:border-"
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
+                <li className="flex">
+                  <NavLink
+                    to="/add-coffee"
+                    className="flex items-center px-4 dark:border-"
+                  >
+                    Add A Coffee
+                  </NavLink>
+                </li>
+                <li className="flex">
+                  <NavLink
+                    to="/added-coffees"
+                    className="flex items-center px-4 dark:border-"
+                  >
+                    Added Coffees
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="flex">
+                  <NavLink
+                    to="/we-offer"
+                    className="flex items-center px-4 dark:border-"
+                  >
+                    We Offer
+                  </NavLink>
+                </li>
+                <li className="flex">
+                  <NavLink
+                    to="/blogs"
+                    className="flex items-center px-4 dark:border-"
+                  >
+                    Blogs
+                  </NavLink>
+                </li>
+                <li className="flex">
+                  <NavLink
+                    to="/contact"
+                    className="flex items-center px-4 dark:border-"
+                  >
+                    Contact Us
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
           <div className="items-center flex-shrink-0 hidden gap-3 lg:flex">
-            <Link to="/">
-              <button className="self-center btn btn-outline dark:bg-fuchsia-600 dark:text-gray-50">
-                Sign Out
-              </button>
-            </Link>
-            <Link to="/signin">
-              <button className="self-center btn btn-outline dark:bg-fuchsia-600 dark:text-gray-50">
-                Sign in
-              </button>
-            </Link>
-            <Link to="/signup">
-              <button className="self-center btn btn-primary dark:bg-fuchsia-600 dark:text-gray-50">
-                Sign up
-              </button>
-            </Link>
+            {user ? (
+              <>
+                <Link to="/">
+                  <button className="self-center btn btn-outline dark:bg-fuchsia-600 dark:text-gray-50">
+                    Sign Out
+                  </button>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/signin">
+                  <button className="self-center btn btn-outline dark:bg-fuchsia-600 dark:text-gray-50">
+                    Sign in
+                  </button>
+                </Link>
+                <Link to="/signup">
+                  <button className="self-center btn btn-primary dark:bg-fuchsia-600 dark:text-gray-50">
+                    Sign up
+                  </button>
+                </Link>
+              </>
+            )}
           </div>
           <button title="Button" type="button" className="p-4 md:hidden">
             <svg
