@@ -14,7 +14,7 @@ const Navbar = () => {
   const location = useLocation();
   let image =
     location.pathname === "/"
-      ? homeBg
+      ? ""
       : location.pathname === "/coffee-club"
       ? clubBg
       : location.pathname === "/we-offer"
@@ -32,12 +32,23 @@ const Navbar = () => {
   };
 
   return (
-    <div>
+    <div className="relative ">
       <header
         style={{ backgroundImage: `url(./src/assets/${image})` }}
         className={` p-4 dark:text-gray-800 bg-cover bg-no-repeat`}
       >
-        <div className="container flex justify-between h-16 mx-auto bg-transparent md:space-x-8">
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="./src/assets/home.mp4" type="video/mp4" />
+          {/* <source src="/path-to-your-video.webm" type="video/webm" /> */}
+          Your browser does not support the video tag.
+        </video>
+        <div className="container flex justify-between z-10 h-16 mx-auto bg-transparent md:space-x-8">
           <ul className="items-stretch hidden space-x-3 md:flex">
             <li className="flex">
               <NavLink to="/" className="flex items-center px-4 dark:border-">

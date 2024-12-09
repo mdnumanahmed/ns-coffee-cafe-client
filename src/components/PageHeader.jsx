@@ -21,20 +21,20 @@ const PageHeader = ({ title, subtitle, btnText, center = false }) => {
     : location.pathname === "/menu"
     ? ((title = "Our Menu"),
       (subtitle =
-        "Whatever your diet or preferences, there’s enough choice for everyone. Order your favourites ahead on our Costa Club app."),
+        "Whatever your diet or preferences, there’s enough choice for everyone. Order your favourites ahead on our Coffee Club app."),
       (btnText = "Order Now"))
     : location.pathname === "/blogs"
     ? ((title = "Read Blogs to know health safty"),
       (subtitle =
-        "Whatever your diet or preferences, there’s enough choice for everyone. Order your favourites ahead on our Costa Club app."),
+        "Whatever your diet or preferences, there’s enough choice for everyone. Order your favourites ahead on our Coffee Club app."),
       (btnText = "Order Now"))
     : (title = "To know more contact us"),
     (subtitle =
-      "Whatever your diet or preferences, there’s enough choice for everyone. Order your favourites ahead on our Costa Club app."),
+      "Whatever your diet or preferences, there’s enough choice for everyone. Order your favourites ahead on our Coffee Club app."),
     (btnText = "Contact Now");
   return (
     <div
-      className={`container mx-auto py-20 flex  ${
+      className={`container mx-auto py-20 flex z-10 ${
         center && "justify-center text-center"
       }`}
     >
