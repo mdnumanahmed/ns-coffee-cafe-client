@@ -2,6 +2,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import PageHeader from "./PageHeader";
 
 const Navbar = () => {
   const homeBg = "home-bg.jpg";
@@ -168,18 +169,7 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-        <div className="container mx-auto py-24">
-          <div className="max-w-screen-sm space-y-4">
-            <h1 className="text-4xl font-bold text-white">Our Menu </h1>
-            <h3 className="text-xl font-semibold text-white">
-              Whatever your diet or preferences, there’s enough choice for
-              everyone. Order your favourites ahead on our Costa Club app.
-            </h3>
-            <button className="btn btn-primary !bg-white !text-black">
-              Order Now
-            </button>
-          </div>
-        </div>
+        <PageHeader />
       </header>
     </div>
   );
