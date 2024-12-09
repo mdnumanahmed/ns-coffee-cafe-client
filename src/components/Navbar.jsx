@@ -1,10 +1,26 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
+  const homeBg = "home-bg.jpg";
+  const offerBg = "offer-bg.jpg";
+  const clubBg = "club-bg.png";
+  const giftBg = "gift-bg.jpg";
   const { user, logOut } = useContext(AuthContext);
+
+  const location = useLocation();
+  let image =
+    location.pathname === "/"
+      ? homeBg
+      : location.pathname === "/coffee-club"
+      ? clubBg
+      : location.pathname === "/we-offer"
+      ? giftBg
+      : location.pathname === "/menu"
+      ? offerBg
+      : homeBg;
 
   const handleLogOut = () => {
     logOut()
@@ -16,8 +32,11 @@ const Navbar = () => {
 
   return (
     <div>
-      <header className="p-4 dark:bg-gray-100 dark:text-gray-800">
-        <div className="container flex justify-between h-16 mx-auto  md:space-x-8">
+      <header
+        style={{ backgroundImage: `url(./src/assets/${image})` }}
+        className={` p-4 dark:text-gray-800 bg-cover bg-no-repeat`}
+      >
+        <div className="container flex justify-between h-16 mx-auto bg-transparent md:space-x-8">
           <ul className="items-stretch hidden space-x-3 md:flex">
             <li className="flex">
               <NavLink to="/" className="flex items-center px-4 dark:border-">
@@ -44,7 +63,7 @@ const Navbar = () => {
           <Link
             to="/"
             aria-label="Back to homepage"
-            className="flex items-center p-3 w-16 rounded-full ring-2 ring-black"
+            className="flex items-center p-3 w-16 rounded-full bg-white/50 ring-2 ring-white"
           >
             <img src={user ? user.photoURL : logo} alt="" />
           </Link>
@@ -111,7 +130,7 @@ const Navbar = () => {
                 <Link to="/">
                   <button
                     onClick={handleLogOut}
-                    className="self-center btn btn-outline dark:bg-fuchsia-600 dark:text-gray-50"
+                    className="self-center btn btn-outline !py-2 dark:bg-fuchsia-600 dark:text-gray-50"
                   >
                     Sign Out
                   </button>
@@ -120,12 +139,12 @@ const Navbar = () => {
             ) : (
               <>
                 <Link to="/signin">
-                  <button className="self-center btn btn-outline dark:bg-fuchsia-600 dark:text-gray-50">
+                  <button className="self-center btn btn-outline !py-2 dark:bg-fuchsia-600 dark:text-gray-50">
                     Sign in
                   </button>
                 </Link>
                 <Link to="/signup">
-                  <button className="self-center btn btn-primary dark:bg-fuchsia-600 dark:text-gray-50">
+                  <button className="self-center btn btn-primary !py-2 dark:bg-fuchsia-600 dark:text-gray-50">
                     Sign up
                   </button>
                 </Link>
@@ -148,6 +167,18 @@ const Navbar = () => {
               ></path>
             </svg>
           </button>
+        </div>
+        <div className="container mx-auto py-24">
+          <div className="max-w-screen-sm space-y-4">
+            <h1 className="text-4xl font-bold text-white">Our Menu </h1>
+            <h3 className="text-xl font-semibold text-white">
+              Whatever your diet or preferences, there’s enough choice for
+              everyone. Order your favourites ahead on our Costa Club app.
+            </h3>
+            <button className="btn btn-primary !bg-white !text-black">
+              Order Now
+            </button>
+          </div>
         </div>
       </header>
     </div>
