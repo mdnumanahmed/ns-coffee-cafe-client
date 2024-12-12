@@ -41,9 +41,7 @@ const PageHeader = ({ title, subtitle, btnText, center = false }) => {
       <div className="space-y-4 max-w-screen-sm">
         <h1 className="text-4xl font-bold text-white"> {title} </h1>
         <h3 className="text-xl font-semibold text-white">{subtitle}</h3>
-        <button className="btn btn-primary !bg-white !text-black">
-          {btnText}
-        </button>
+        <button className="btn btn-outline ">{btnText}</button>
       </div>
     </div>
   );

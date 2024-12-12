@@ -1,7 +1,9 @@
+import Features from "../components/Features/Features";
+
 const Home = () => {
   return (
     <div>
-      <h1>This is Homepage</h1>
+      <Features />
     </div>
   );
 };

@@ -43,7 +43,7 @@ const Login = () => {
               Join to Our Platform with all time access and free{" "}
             </h1>
             {/* Social Login options */}
-            <SocialLogin />
+            <SocialLogin signin={true} />
 
             <div className="mt-4  text-gray-600 text-center">
               <p>or with email</p>

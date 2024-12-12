@@ -47,12 +47,12 @@ header ul li a{
 }
 
 .btn {
-    @apply px-8 py-3 font-semibold rounded-3xl border-2 border-[#6E2038]
+    @apply px-8 py-3 font-semibold rounded-3xl border-2 border-gray-100
 }
 .btn-primary{
-    @apply bg-ns-red-pinkish text-white hover:bg-transparent hover:text-[#6E2038]
+    @apply bg-ns-red-pinkish text-white hover:bg-gray-100 hover:border-gray-100 hover:text-[#6E2038]
 }
 .btn-outline{
-    @apply  text-[#6E2038] hover:bg-[#6E2038] hover:text-white
+    @apply  text-[#6E2038] bg-gray-100 hover:border-gray-100 hover:bg-[#6E2038] hover:text-white
 }
 
