@@ -1,4 +1,15 @@
 /*  
+https://i.ibb.co.com/svnNy40/functional-drinks.jpg
+https://i.ibb.co.com/3yXnjV5/juices.jpg
+https://i.ibb.co.com/6r4PrZ2/hot-beverages.jpg
+https://i.ibb.co.com/6FGDJWV/energy-drinks.jpg
+https://i.ibb.co.com/2kGBjZ2/water-products.jpg
+https://i.ibb.co.com/wCMSqgS/dairy-beverages.jpg
+https://i.ibb.co.com/q7QKPGY/plant-based-drink.jpg
+https://i.ibb.co.com/YNfPLfm/soft-drink.jpg
+https://i.ibb.co.com/0XZ4T1J/mocktails-drinks.jpg
+
+
 1. Soft Drinks
 Carbonated sodas
 Tonic water
@@ -81,10 +92,12 @@ Non-alcoholic spirits
 
 
 {
+  {
   "categories": [
     {
       "id": 1,
       "name": "Soft Drinks",
+      "description": "Carbonated and non-carbonated beverages that are typically sweet and refreshing.",
       "subcategories": [
         { "id": 1, "name": "Carbonated sodas" },
         { "id": 2, "name": "Tonic water" },
@@ -97,6 +110,7 @@ Non-alcoholic spirits
     {
       "id": 2,
       "name": "Juices",
+      "description": "Beverages made from the extraction or pressing of fresh fruits or vegetables.",
       "subcategories": [
         { "id": 1, "name": "Citrus juices" },
         { "id": 2, "name": "Tropical juices" },
@@ -109,6 +123,7 @@ Non-alcoholic spirits
     {
       "id": 3,
       "name": "Alcoholic Beverages",
+      "description": "Drinks that contain varying amounts of alcohol for recreational or social purposes.",
       "subcategories": [
         { "id": 1, "name": "Beer" },
         { "id": 2, "name": "Wine" },
@@ -121,6 +136,7 @@ Non-alcoholic spirits
     {
       "id": 4,
       "name": "Hot Beverages",
+      "description": "Warm drinks often consumed for relaxation, comfort, or stimulation.",
       "subcategories": [
         { "id": 1, "name": "Coffee" },
         { "id": 2, "name": "Tea" },
@@ -133,6 +149,7 @@ Non-alcoholic spirits
     {
       "id": 5,
       "name": "Energy Drinks",
+      "description": "Beverages designed to boost energy and enhance mental or physical performance.",
       "subcategories": [
         { "id": 1, "name": "Traditional energy drinks" },
         { "id": 2, "name": "Sugar-free options" },
@@ -145,6 +162,7 @@ Non-alcoholic spirits
     {
       "id": 6,
       "name": "Water Products",
+      "description": "Different types of water-based beverages for hydration and health.",
       "subcategories": [
         { "id": 1, "name": "Spring water" },
         { "id": 2, "name": "Distilled water" },
@@ -157,6 +175,7 @@ Non-alcoholic spirits
     {
       "id": 7,
       "name": "Plant-Based Drinks",
+      "description": "Non-dairy alternatives made from plant sources like nuts, grains, and seeds.",
       "subcategories": [
         { "id": 1, "name": "Coconut water" },
         { "id": 2, "name": "Almond milk" },
@@ -169,6 +188,7 @@ Non-alcoholic spirits
     {
       "id": 8,
       "name": "Dairy Beverages",
+      "description": "Drinks derived from milk and other dairy sources, often rich in protein and calcium.",
       "subcategories": [
         { "id": 1, "name": "Milkshakes" },
         { "id": 2, "name": "Yogurt-based drinks" },
@@ -181,6 +201,7 @@ Non-alcoholic spirits
     {
       "id": 9,
       "name": "Functional Drinks",
+      "description": "Beverages with added health benefits, such as boosting immunity or aiding recovery.",
       "subcategories": [
         { "id": 1, "name": "Detox drinks" },
         { "id": 2, "name": "Probiotic beverages" },
@@ -193,6 +214,7 @@ Non-alcoholic spirits
     {
       "id": 10,
       "name": "Mocktails & Specialty Drinks",
+      "description": "Non-alcoholic creative blends and unique drinks for social occasions.",
       "subcategories": [
         { "id": 1, "name": "Virgin mojitos" },
         { "id": 2, "name": "Fruit sangrias" },

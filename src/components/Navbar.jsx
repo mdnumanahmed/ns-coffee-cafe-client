@@ -1,27 +1,30 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import PageHeader from "./PageHeader";
+import { BiAlignRight, BiX } from "react-icons/bi";
 
 const Navbar = () => {
   const homeBg = "home-bg.jpg";
   const offerBg = "offer-bg.jpg";
   const clubBg = "club-bg.png";
   const giftBg = "gift-bg.jpg";
+  const coffeeBg = "coffee-bg.jpg";
   const { user, logOut } = useContext(AuthContext);
+  const [openMenu, setOpenMenu] = useState(false);
 
   const location = useLocation();
   let image =
     location.pathname === "/"
-      ? ""
+      ? homeBg
       : location.pathname === "/coffee-club"
       ? clubBg
       : location.pathname === "/we-offer"
       ? giftBg
       : location.pathname === "/menu"
       ? offerBg
-      : homeBg;
+      : coffeeBg;
 
   const handleLogOut = () => {
     logOut()
@@ -37,7 +40,7 @@ const Navbar = () => {
         style={{ backgroundImage: `url(./src/assets/${image})` }}
         className={` p-4 dark:text-gray-800 bg-cover bg-no-repeat`}
       >
-        <video
+        {/* <video
           className="absolute top-0 left-0 w-full h-full object-cover -z-10"
           autoPlay
           loop
@@ -45,9 +48,9 @@ const Navbar = () => {
           playsInline
         >
           <source src="./src/assets/home.mp4" type="video/mp4" />
-          {/* <source src="/path-to-your-video.webm" type="video/webm" /> */}
+          <source src="/path-to-your-video.webm" type="video/webm" />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
         <div className="container flex justify-between z-10 h-16 mx-auto bg-transparent md:space-x-8">
           <ul className="items-stretch hidden space-x-3 md:flex">
             <li className="flex">
@@ -92,7 +95,7 @@ const Navbar = () => {
                 </li>
                 <li className="flex">
                   <NavLink
-                    to="/add-coffee"
+                    to="/add-product"
                     className="flex items-center px-4 dark:border-"
                   >
                     Add A Coffee
@@ -163,22 +166,25 @@ const Navbar = () => {
               </>
             )}
           </div>
-          <button title="Button" type="button" className="p-4 md:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6 dark:text-gray-800"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </button>
+          <div onClick={() => setOpenMenu(!openMenu)}>
+            {openMenu ? (
+              <button
+                title="Menu"
+                type="button"
+                className="p-5 text-2xl rounded-full md:hidden bg-gray-100/50"
+              >
+                <BiAlignRight />
+              </button>
+            ) : (
+              <button
+                title="Menu"
+                type="button"
+                className="p-5 text-2xl rounded-full md:hidden bg-gray-100/50"
+              >
+                <BiX />
+              </button>
+            )}
+          </div>
         </div>
         <PageHeader />
       </header>
