@@ -56,3 +56,7 @@ header ul li a{
     @apply  text-[#6E2038] bg-gray-100 hover:border-gray-100 hover:bg-[#6E2038] hover:text-white
 }
 
+.text-shadow{
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
