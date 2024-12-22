@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import { FaEdit, FaRegEye, FaRegTrashAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-  const { photo, name, brand, category, price } = product;
+  const { _id, photo, name, brand, category, price } = product;
   return (
     <div className="bg-gray-100 flex justify-around items-center rounded-xl p-8">
       <div>
@@ -28,9 +29,11 @@ const ProductCard = ({ product }) => {
         <button className="w-10 h-10 rounded-md bg-ns-red-pinkish text-white ">
           <FaRegEye className="mx-auto" />
         </button>
-        <button className="w-10 h-10 rounded-md bg-black text-white ">
-          <FaEdit className="mx-auto" />
-        </button>
+        <Link to={`/update-product/${_id}`}>
+          <button className="w-10 h-10 rounded-md bg-black text-white ">
+            <FaEdit className="mx-auto" />
+          </button>
+        </Link>
         <button className="w-10 h-10 rounded-md bg-orange-600 text-white ">
           <FaRegTrashAlt className="mx-auto" />
         </button>
