@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { FaEdit, FaRegEye, FaRegTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, handleDeleteProduct }) => {
   const { _id, photo, name, brand, category, price } = product;
   return (
     <div className="bg-gray-100 flex justify-around items-center rounded-xl p-8">
@@ -34,7 +34,10 @@ const ProductCard = ({ product }) => {
             <FaEdit className="mx-auto" />
           </button>
         </Link>
-        <button className="w-10 h-10 rounded-md bg-orange-600 text-white ">
+        <button
+          onClick={() => handleDeleteProduct(_id)}
+          className="w-10 h-10 rounded-md bg-orange-600 text-white "
+        >
           <FaRegTrashAlt className="mx-auto" />
         </button>
       </div>
@@ -44,6 +47,7 @@ const ProductCard = ({ product }) => {
 
 ProductCard.propTypes = {
   product: PropTypes.object.isRequired,
+  handleDeleteProduct: PropTypes.func.isRequired,
 };
 
 export default ProductCard;
