@@ -1,4 +1,57 @@
+import Swal from "sweetalert2";
+
 const AddProduct = () => {
+  const handleAddProduct = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const name = form.get("name");
+    const price = form.get("price");
+    const category = form.get("category");
+    const manufacturer = form.get("manufacturer");
+    const ingredients = form.get("ingredients");
+    const supplier = form.get("supplier");
+    const flavours = form.get("flavours");
+    const rating = form.get("rating");
+    const brand = form.get("brand");
+    const photo = form.get("photo");
+    const details = form.get("details");
+
+    const product = {
+      name,
+      price,
+      category,
+      manufacturer,
+      ingredients,
+      supplier,
+      flavours,
+      rating,
+      brand,
+      photo,
+      details,
+    };
+
+    fetch("http://localhost:5000/products", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Product added successfully",
+            showConfirmButton: false,
+            timer: 2500,
+          });
+        }
+      });
+
+    console.log(product);
+  };
   return (
     <>
       <section className="container mx-auto px-32 py-20 my-28 rounded-2xl bg-[#F4F3F0] text-[#1B1A1A]">
@@ -9,19 +62,19 @@ const AddProduct = () => {
             everyone. Order your favourites ahead on our Coffee Club app.
           </p>
         </div>
-        <form className="flex flex-col space-y-12">
+        <form onSubmit={handleAddProduct} className="flex flex-col space-y-12">
           <fieldset className="p-6 rounded-md shadow-sm">
             <div className="grid grid-cols-6 gap-4">
               <div className="col-span-full sm:col-span-3 space-y-2">
                 <label
-                  htmlFor="product_name"
+                  htmlFor="name"
                   className="text-xl font-semibold text-[#1B1A1A]"
                 >
                   Product Name
                 </label>
                 <input
-                  id="product_name"
-                  name="product_name"
+                  id="name"
+                  name="name"
                   type="text"
                   placeholder="Enter Product Name"
                   className="w-full rounded-md h-12 p-4 focus:ring focus:ring-opacity-75 text-gray-900 border-gray-700 focus:ring-red-400"
@@ -59,31 +112,31 @@ const AddProduct = () => {
               </div>
               <div className="col-span-full sm:col-span-3 space-y-2">
                 <label
-                  htmlFor="sub_category"
+                  htmlFor="manufacturer"
                   className="text-xl font-semibold text-[#1B1A1A]"
                 >
-                  Sub Category Name
+                  Manufacturer
                 </label>
                 <input
-                  id="sub_category"
-                  name="sub_category"
+                  id="manufacturer"
+                  name="manufacturer"
                   type="text"
-                  placeholder="Enter Sub Category Name"
+                  placeholder="Enter Manufacturer Name"
                   className="w-full h-12 p-4 rounded-md focus:ring focus:ring-opacity-75 text-gray-900 border-gray-700 focus:ring-red-400"
                 />
               </div>
               <div className="col-span-full sm:col-span-3 space-y-2">
                 <label
-                  htmlFor="chef"
+                  htmlFor="ingredients"
                   className="text-xl font-semibold text-[#1B1A1A]"
                 >
-                  Chef Name
+                  Ingredients
                 </label>
                 <input
-                  id="chef"
-                  name="chef"
+                  id="ingredients"
+                  name="ingredients"
                   type="text"
-                  placeholder="Enter Chef Name"
+                  placeholder="Enter Ingredients Name comma ( , ) separated"
                   className="w-full rounded-md h-12 p-4 focus:ring focus:ring-opacity-75 text-gray-900 border-gray-700 focus:ring-red-400"
                 />
               </div>
@@ -104,16 +157,16 @@ const AddProduct = () => {
               </div>
               <div className="col-span-full sm:col-span-3 space-y-2">
                 <label
-                  htmlFor="taste"
+                  htmlFor="flavours"
                   className="text-xl font-semibold text-[#1B1A1A]"
                 >
                   Taste / Flavours
                 </label>
                 <input
-                  id="taste"
-                  name="taste"
+                  id="flavours"
+                  name="flavours"
                   type="text"
-                  placeholder="Enter Taste / Flavours"
+                  placeholder="Enter Taste / Flavours comma ( , ) separated"
                   className="w-full rounded-md h-12 p-4 focus:ring focus:ring-opacity-75 text-gray-900 border-gray-700 focus:ring-red-400"
                 />
               </div>
