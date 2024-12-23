@@ -7,25 +7,23 @@ import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
   const homeBg = "home-bg.jpg";
-  const offerBg = "offer-bg.jpg";
-  const clubBg = "club-bg.png";
-  const giftBg = "gift-bg.jpg";
+  // const offerBg = "offer-bg.jpg";
+  // const clubBg = "club-bg.png";
+  // const giftBg = "gift-bg.jpg";
   const coffeeBg = "coffee-bg.jpg";
 
   const { user, logOut } = useAuth();
   const [openMenu, setOpenMenu] = useState(false);
 
   const location = useLocation();
-  let image =
-    location.pathname === "/"
-      ? homeBg
-      : location.pathname === "/coffee-club"
-      ? clubBg
-      : location.pathname === "/we-offer"
-      ? giftBg
-      : location.pathname === "/menu"
-      ? offerBg
-      : coffeeBg;
+  let image = location.pathname !== "/" ? homeBg : coffeeBg;
+  // : location.pathname === "/coffee-club"
+  // ? clubBg
+  // : location.pathname === "/we-offer"
+  // ? giftBg
+  // : location.pathname === "/menu"
+  // ? offerBg
+  // : coffeeBg;
 
   const handleLogOut = () => {
     logOut()
