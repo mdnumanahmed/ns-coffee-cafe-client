@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LeftPane from "../components/LoginRegister/LeftPane";
 import SocialLogin from "../components/LoginRegister/SocialLogin";
 import { useState } from "react";
@@ -8,6 +8,9 @@ import useAuth from "../hooks/useAuth";
 const Login = () => {
   const { signInUser } = useAuth();
   const [showPass, setShowPass] = useState(false);
+  const location = useLocation();
+  const from = location.state || "/";
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -23,6 +26,7 @@ const Login = () => {
         const createdUser = result.user;
         form.reset();
         console.log(createdUser);
+        navigate(from);
       })
       .catch((error) => {
         console.log(error);

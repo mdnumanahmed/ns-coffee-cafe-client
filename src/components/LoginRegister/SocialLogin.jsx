@@ -1,14 +1,19 @@
 import PropTypes from "prop-types";
 import useAuth from "../../hooks/useAuth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = ({ signin }) => {
   const { googleSignIn, githubSignIn } = useAuth();
+  const location = useLocation();
+  const from = location.state || "/";
+  const navigate = useNavigate();
 
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         const signedUser = result.user;
         console.log(signedUser);
+        navigate(from);
       })
       .catch((error) => {
         console.log(error);
@@ -20,6 +25,7 @@ const SocialLogin = ({ signin }) => {
       .then((result) => {
         const signedUser = result.user;
         console.log(signedUser);
+        navigate(from);
       })
       .catch((error) => {
         console.log(error);
