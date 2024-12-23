@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { AuthContext } from "../../providers/AuthProvider";
 import PropTypes from "prop-types";
+import useAuth from "../../hooks/useAuth";
 
 const SocialLogin = ({ signin }) => {
-  const { googleSignIn, githubSignIn } = useContext(AuthContext);
+  const { googleSignIn, githubSignIn } = useAuth();
 
   const handleGoogleSignIn = () => {
     googleSignIn()

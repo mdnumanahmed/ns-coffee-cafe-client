@@ -1,14 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../components/LoginRegister/SocialLogin";
 import LeftPane from "../components/LoginRegister/LeftPane";
-import { useContext, useState } from "react";
-import { AuthContext } from "../providers/AuthProvider";
+import { useState } from "react";
 import Swal from "sweetalert2";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import validatePassword from "../utils/passwordValidate";
+import useAuth from "../hooks/useAuth";
 
 const Register = () => {
-  const { createUser, updateUserData } = useContext(AuthContext);
+  const { createUser, updateUserData } = useAuth();
   const [showPass, setShowPass] = useState(false);
   const [passErrors, setPassErrors] = useState([]);
   const [inputtedPassword, setInputtedPassword] = useState("");

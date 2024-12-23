@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import LeftPane from "../components/LoginRegister/LeftPane";
 import SocialLogin from "../components/LoginRegister/SocialLogin";
-import { useContext, useState } from "react";
-import { AuthContext } from "../providers/AuthProvider";
+import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import useAuth from "../hooks/useAuth";
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser } = useAuth();
   const [showPass, setShowPass] = useState(false);
 
   const handleLogin = (e) => {

@@ -1,9 +1,9 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { useContext, useState } from "react";
-import { AuthContext } from "../providers/AuthProvider";
+import { useState } from "react";
 import PageHeader from "./PageHeader";
 import { BiAlignRight, BiX } from "react-icons/bi";
+import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
   const homeBg = "home-bg.jpg";
@@ -11,7 +11,8 @@ const Navbar = () => {
   const clubBg = "club-bg.png";
   const giftBg = "gift-bg.jpg";
   const coffeeBg = "coffee-bg.jpg";
-  const { user, logOut } = useContext(AuthContext);
+
+  const { user, logOut } = useAuth();
   const [openMenu, setOpenMenu] = useState(false);
 
   const location = useLocation();
