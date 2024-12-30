@@ -19,7 +19,8 @@ const ProductDetails = () => {
   } = product;
 
   console.log(product);
-
+  // React Rating
+  //   const [ratings, setRating] = useState(rating);
   const myStyles = {
     itemShapes: ThinStar,
     activeFillColor: "#6E2038", //#ffb700
@@ -27,10 +28,10 @@ const ProductDetails = () => {
   };
   return (
     <div>
-      <div className="container mx-auto">
+      <div className="container mx-auto p-20 rounded-2xl bg-gray-100 my-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="flex items-center justify-center">
-            <img src={photo} alt="" className="w-2/3 " />
+            <img src={photo} alt="" className="w-2/3 border-2 rounded-2xl" />
           </div>
           <div className="space-y-3">
             <h2 className="text-4xl font-bold">{name}</h2>
@@ -38,6 +39,7 @@ const ProductDetails = () => {
               <Rating
                 value={rating}
                 readOnly
+                // onChange={setRating}
                 style={{ maxWidth: 150 }}
                 itemStyles={myStyles}
                 className=""

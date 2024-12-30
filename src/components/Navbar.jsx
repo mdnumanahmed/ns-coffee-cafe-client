@@ -10,21 +10,25 @@ const Navbar = () => {
   // const offerBg = "offer-bg.jpg";
   // const clubBg = "club-bg.png";
   // const giftBg = "gift-bg.jpg";
-  const coffeeBg = "coffee-bg.jpg";
+  // const coffeeBg = "coffee-bg.jpg";
 
   const { user, logOut } = useAuth();
   const [openMenu, setOpenMenu] = useState(false);
 
-  const location = useLocation();
-  let image = location.pathname !== "/" ? homeBg : coffeeBg;
-  // : location.pathname === "/coffee-club"
-  // ? clubBg
-  // : location.pathname === "/we-offer"
-  // ? giftBg
-  // : location.pathname === "/menu"
-  // ? offerBg
-  // : coffeeBg;
-
+  // const location = useLocation();
+  // let path = location.pathname.split("/")[2];
+  let image = homeBg;
+  // location.pathname === "/"
+  //   ? homeBg
+  //   : location.pathname === "/coffee-club"
+  //   ? clubBg
+  //   : location.pathname === "/we-offer"
+  //   ? giftBg
+  //   : location.pathname === "/menu"
+  //   ? offerBg
+  //   : location.pathname === `/product-details/${path}`
+  //   ? coffeeBg
+  //   : "";
   const handleLogOut = () => {
     logOut()
       .then()

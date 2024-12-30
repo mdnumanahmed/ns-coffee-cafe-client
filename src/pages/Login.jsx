@@ -4,12 +4,13 @@ import SocialLogin from "../components/LoginRegister/SocialLogin";
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
+import axios from "axios";
 
 const Login = () => {
   const { signInUser } = useAuth();
   const [showPass, setShowPass] = useState(false);
   const location = useLocation();
-  const from = location.state || "/";
+  const from = location?.state || "/";
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -17,16 +18,25 @@ const Login = () => {
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-    const inputValues = { email, password };
-    console.log(inputValues);
 
     // create a new user with email password
     signInUser(email, password)
       .then((result) => {
         const createdUser = result.user;
-        form.reset();
-        console.log(createdUser);
-        navigate(from);
+        // console.log(createdUser);
+        const user = { email };
+        axios
+          .post("http://localhost:5000/jwt", user, { withCredentials: true })
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.success) {
+              navigate(from);
+              form.reset();
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => {
         console.log(error);
