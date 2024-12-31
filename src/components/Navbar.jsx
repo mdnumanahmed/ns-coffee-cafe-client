@@ -101,15 +101,15 @@ const Navbar = () => {
                     to="/add-product"
                     className="flex items-center px-4 dark:border-"
                   >
-                    Add A Coffee
+                    Add Product
                   </NavLink>
                 </li>
                 <li className="flex">
                   <NavLink
-                    to="/added-coffees"
+                    to="/my-products"
                     className="flex items-center px-4 dark:border-"
                   >
-                    Added Coffees
+                    My Products
                   </NavLink>
                 </li>
               </>

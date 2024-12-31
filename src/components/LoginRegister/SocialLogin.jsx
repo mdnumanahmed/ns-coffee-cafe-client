@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SocialLogin = ({ signin }) => {
   const { googleSignIn, githubSignIn } = useAuth();
@@ -12,8 +13,15 @@ const SocialLogin = ({ signin }) => {
     googleSignIn()
       .then((result) => {
         const signedUser = result.user;
-        console.log(signedUser);
-        navigate(from);
+        const user = { email: signedUser.email };
+        axios
+          .post("http://localhost:5000/jwt", user, { withCredentials: true })
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.success) {
+              navigate(from);
+            }
+          });
       })
       .catch((error) => {
         console.log(error);
@@ -24,8 +32,15 @@ const SocialLogin = ({ signin }) => {
     githubSignIn()
       .then((result) => {
         const signedUser = result.user;
-        console.log(signedUser);
-        navigate(from);
+        const user = { email: signedUser.email };
+        axios
+          .post("http://localhost:5000/jwt", user, { withCredentials: true })
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.success) {
+              navigate(from);
+            }
+          });
       })
       .catch((error) => {
         console.log(error);

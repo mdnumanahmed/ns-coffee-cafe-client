@@ -1,23 +1,21 @@
 import { useEffect, useState } from "react";
-import SectionTitle from "../SectionTitle";
-import ProductCard from "./ProductCard";
+import ProductCard from "../components/Products/ProductCard";
+import SectionTitle from "../components/SectionTitle";
 import axios from "axios";
+import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
 
-const Products = () => {
+const MyProducts = () => {
+  const { user } = useAuth();
   const [products, setProducts] = useState([]);
 
+  const url = `http://localhost:5000/products?email=${user?.email}`;
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/products", { withCredentials: true })
-      .then((res) => {
-        console.log(res.data);
-        setProducts(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+    axios.get(url, { withCredentials: true }).then((res) => {
+      console.log(res.data);
+      setProducts(res.data);
+    });
+  }, [url]);
 
   const handleDeleteProduct = (id) => {
     axios
@@ -40,12 +38,13 @@ const Products = () => {
         console.log(error);
       });
   };
+
   return (
     <div>
       <div className="container mx-auto py-16">
         <SectionTitle
-          title={"Our Popular Products"}
-          subTitle={"--- Sip & Savor ---"}
+          title={"My Added Products"}
+          subTitle={"--- Check & Update ---"}
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
           {products?.map((product) => (
@@ -61,4 +60,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default MyProducts;

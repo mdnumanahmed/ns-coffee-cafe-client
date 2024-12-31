@@ -1,6 +1,9 @@
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 const AddProduct = () => {
+  const { user } = useAuth();
+
   const handleAddProduct = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -28,6 +31,8 @@ const AddProduct = () => {
       brand,
       photo,
       details,
+      email: user?.email,
+      createdAt: new Date().toISOString(),
     };
 
     fetch("http://localhost:5000/products", {
