@@ -4,9 +4,14 @@ import { useState } from "react";
 import PageHeader from "./PageHeader";
 import { BiAlignRight, BiX } from "react-icons/bi";
 import useAuth from "../hooks/useAuth";
+import homeBg from "../assets/home-bg.jpg";
+import offerBg from "../assets/offer-bg.jpg";
+import clubBg from "../assets/club-bg.png";
+import giftBg from "../assets/gift-bg.jpg";
+import coffeeBg from "../assets/coffee-bg.jpg";
 
 const Navbar = () => {
-  const homeBg = "home-bg.jpg";
+  // const homeBg = "home-bg.jpg";
   // const offerBg = "offer-bg.jpg";
   // const clubBg = "club-bg.png";
   // const giftBg = "gift-bg.jpg";
@@ -15,20 +20,22 @@ const Navbar = () => {
   const { user, logOut } = useAuth();
   const [openMenu, setOpenMenu] = useState(false);
 
-  // const location = useLocation();
+  const location = useLocation();
   // let path = location.pathname.split("/")[2];
-  let image = homeBg;
-  // location.pathname === "/"
-  //   ? homeBg
-  //   : location.pathname === "/coffee-club"
-  //   ? clubBg
-  //   : location.pathname === "/we-offer"
-  //   ? giftBg
-  //   : location.pathname === "/menu"
-  //   ? offerBg
-  //   : location.pathname === `/product-details/${path}`
-  //   ? coffeeBg
-  //   : "";
+  let image =
+    location.pathname === "/"
+      ? homeBg
+      : location.pathname === "/coffee-club"
+      ? clubBg
+      : location.pathname === "/we-offer"
+      ? giftBg
+      : location.pathname === "/menu"
+      ? offerBg
+      : location.pathname === `/add-product`
+      ? coffeeBg
+      : location.pathname === `/my-products`
+      ? offerBg
+      : homeBg;
   const handleLogOut = () => {
     logOut()
       .then()
@@ -40,7 +47,7 @@ const Navbar = () => {
   return (
     <div className="relative ">
       <header
-        style={{ backgroundImage: `url(./src/assets/${image})` }}
+        style={{ backgroundImage: `url(${image})` }}
         className={` p-4 dark:text-gray-800 bg-cover bg-no-repeat`}
       >
         {/* <video

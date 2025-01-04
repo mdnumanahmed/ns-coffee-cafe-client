@@ -24,19 +24,8 @@ const Login = () => {
       .then((result) => {
         const createdUser = result.user;
         // console.log(createdUser);
-        const user = { email };
-        axios
-          .post("http://localhost:5000/jwt", user, { withCredentials: true })
-          .then((res) => {
-            console.log(res.data);
-            if (res.data.success) {
-              navigate(from);
-              form.reset();
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        navigate(from);
+        form.reset();
       })
       .catch((error) => {
         console.log(error);

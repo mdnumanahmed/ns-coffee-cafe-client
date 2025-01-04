@@ -9,9 +9,8 @@ const Products = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/products", { withCredentials: true })
+      .get("https://ns-coffee-cafe-server.vercel.app/products")
       .then((res) => {
-        console.log(res.data);
         setProducts(res.data);
       })
       .catch((error) => {
@@ -20,26 +19,44 @@ const Products = () => {
   }, []);
 
   const handleDeleteProduct = (id) => {
-    axios
-      .delete(`http://localhost:5000/products/${id}`)
-      .then((res) => {
-        console.log(res);
-        if (res.data.deletedCount > 0) {
-          const remaining = products.filter((product) => product._id !== id);
-          setProducts(remaining);
-          Swal.fire({
-            position: "center",
-            icon: "warning",
-            title: "Product deleted successfully",
-            showConfirmButton: false,
-            timer: 2500,
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You can not recover it!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`https://ns-coffee-cafe-server.vercel.app/products/${id}`, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.deletedCount > 0) {
+              const remaining = products.filter(
+                (product) => product._id !== id
+              );
+              setProducts(remaining);
+              Swal.fire({
+                position: "center",
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 2500,
+              });
+            }
+          })
+          .catch((error) => {
+            console.log(error);
           });
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      }
+    });
   };
+
   return (
     <div>
       <div className="container mx-auto py-16">

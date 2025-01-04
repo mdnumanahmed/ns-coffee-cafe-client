@@ -28,7 +28,9 @@ const router = createBrowserRouter([
         path: "/product-details/:id",
         element: <ProductDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://ns-coffee-cafe-server.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/coffee-club",
@@ -58,7 +60,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://ns-coffee-cafe-server.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/my-products",

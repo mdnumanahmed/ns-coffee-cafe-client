@@ -13,15 +13,17 @@ const SocialLogin = ({ signin }) => {
     googleSignIn()
       .then((result) => {
         const signedUser = result.user;
-        const user = { email: signedUser.email };
-        axios
-          .post("http://localhost:5000/jwt", user, { withCredentials: true })
-          .then((res) => {
-            console.log(res.data);
-            if (res.data.success) {
-              navigate(from);
-            }
-          });
+        navigate(from);
+        // to generate token after login user
+        // const user = { email: signedUser.email };
+        // axios
+        //   .post("https://ns-coffee-cafe-server.vercel.app/jwt", user, { withCredentials: true })
+        //   .then((res) => {
+        //     console.log(res.data);
+        //     if (res.data.success) {
+        //       navigate(from);
+        //     }
+        //   });
       })
       .catch((error) => {
         console.log(error);
@@ -32,15 +34,18 @@ const SocialLogin = ({ signin }) => {
     githubSignIn()
       .then((result) => {
         const signedUser = result.user;
-        const user = { email: signedUser.email };
-        axios
-          .post("http://localhost:5000/jwt", user, { withCredentials: true })
-          .then((res) => {
-            console.log(res.data);
-            if (res.data.success) {
-              navigate(from);
-            }
-          });
+        navigate(from);
+
+        // to generate token after login user
+        // const user = { email: signedUser.email };
+        // axios
+        //   .post("https://ns-coffee-cafe-server.vercel.app/jwt", user, { withCredentials: true })
+        //   .then((res) => {
+        //     console.log(res.data);
+        //     if (res.data.success) {
+        //       navigate(from);
+        //     }
+        //   });
       })
       .catch((error) => {
         console.log(error);

@@ -35,7 +35,7 @@ const AddProduct = () => {
       createdAt: new Date().toISOString(),
     };
 
-    fetch("http://localhost:5000/products", {
+    fetch("https://ns-coffee-cafe-server.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

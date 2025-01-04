@@ -12,6 +12,7 @@ import {
 import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -59,8 +60,33 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      const loggedUser = { email: currentUser?.email || user?.email };
       setUser(currentUser);
       setLoading(false);
+      // generate token
+      if (currentUser) {
+        axios
+          .post("https://ns-coffee-cafe-server.vercel.app/jwt", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        axios
+          .post("https://ns-coffee-cafe-server.vercel.app/logout", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     });
     return () => {
       unSubscribe();
