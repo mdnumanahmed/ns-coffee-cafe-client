@@ -46,7 +46,7 @@ const UpdateProduct = () => {
       details,
     };
 
-    fetch(`https://ns-coffee-cafe-server.vercel.app/products/${_id}`, {
+    fetch(`http://localhost:5000/products/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

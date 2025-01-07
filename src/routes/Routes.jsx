@@ -23,14 +23,13 @@ const router = createBrowserRouter([
       {
         path: "/menu",
         element: <OurMenu />,
+        loader: () => fetch("http://localhost:5000/itemsCount"),
       },
       {
         path: "/product-details/:id",
         element: <ProductDetails />,
         loader: ({ params }) =>
-          fetch(
-            `https://ns-coffee-cafe-server.vercel.app/products/${params.id}`
-          ),
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
         path: "/coffee-club",
@@ -60,9 +59,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://ns-coffee-cafe-server.vercel.app/products/${params.id}`
-          ),
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
         path: "/my-products",

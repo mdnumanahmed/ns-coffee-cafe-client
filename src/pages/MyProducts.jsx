@@ -11,7 +11,7 @@ const MyProducts = () => {
   const [products, setProducts] = useState([]);
   const axiosSecure = useAxiosSecure();
 
-  // const url = `https://ns-coffee-cafe-server.vercel.app/my-products?email=${user?.email}`;
+  // const url = `http://localhost:5000/my-products?email=${user?.email}`;
   const url = `/my-products?email=${user?.email}`;
   useEffect(() => {
     // axios.get(url, { withCredentials: true }).then((res) => {
@@ -33,7 +33,7 @@ const MyProducts = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://ns-coffee-cafe-server.vercel.app/products/${id}`, {
+          .delete(`http://localhost:5000/products/${id}`, {
             withCredentials: true,
           })
           .then((res) => {

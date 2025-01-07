@@ -17,7 +17,7 @@ const SocialLogin = ({ signin }) => {
         // to generate token after login user
         // const user = { email: signedUser.email };
         // axios
-        //   .post("https://ns-coffee-cafe-server.vercel.app/jwt", user, { withCredentials: true })
+        //   .post("http://localhost:5000/jwt", user, { withCredentials: true })
         //   .then((res) => {
         //     console.log(res.data);
         //     if (res.data.success) {
@@ -39,7 +39,7 @@ const SocialLogin = ({ signin }) => {
         // to generate token after login user
         // const user = { email: signedUser.email };
         // axios
-        //   .post("https://ns-coffee-cafe-server.vercel.app/jwt", user, { withCredentials: true })
+        //   .post("http://localhost:5000/jwt", user, { withCredentials: true })
         //   .then((res) => {
         //     console.log(res.data);
         //     if (res.data.success) {
